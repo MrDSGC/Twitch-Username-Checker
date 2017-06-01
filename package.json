@@ -1,0 +1,33 @@
+{
+  "name": "widgets",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "postinstall": "webpack",
+    "webpack": "webpack --watch",
+    "start": "webpack-dev-server"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "babel-core": "^6.1.4",
+    "babel-loader": "^6.1.0",
+    "babel-preset-es2015": "^6.9.0",
+    "babel-preset-react": "^6.1.4",
+    "react": "^0.14.9",
+    "react-addons-css-transition-group": "^0.14.6",
+    "react-dom": "^0.14.2",
+    "react-fontawesome": "^1.6.1",
+    "react-modal": "^1.7.7",
+    "react-redux": "^5.0.4",
+    "react-router": "^3.0.2",
+    "redux": "^3.6.0",
+    "redux-thunk": "^2.2.0",
+    "router": "^1.3.0",
+    "webpack": "^2.6.0",
+    "webpack-dev-server": "^2.3.0"
+  }
+}
