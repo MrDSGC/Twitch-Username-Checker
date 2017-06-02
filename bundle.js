@@ -15659,7 +15659,7 @@ var Content = function (_React$Component) {
 
     var _this = _possibleConstructorReturn(this, (Content.__proto__ || Object.getPrototypeOf(Content)).call(this, props));
 
-    _this.state = { channel: '', avaliable: null, channels: null };
+    _this.state = { channel: '', available: null, channels: null };
     _this.handleChannelSubmit = _this.handleChannelSubmit.bind(_this);
     return _this;
   }
@@ -15705,9 +15705,9 @@ var Content = function (_React$Component) {
 
         this.setState({ channels: cleanedDeepSearch });
         if (cleanedDeepSearch.length > 0) {
-          this.setState({ avaliable: false });
+          this.setState({ available: false });
         } else {
-          this.setState({ avaliable: true });
+          this.setState({ available: true });
         }
       }
     }
@@ -15720,7 +15720,7 @@ var Content = function (_React$Component) {
       var month = this.parseMonth(string_date.slice(8, 9));
 
       debugger;
-      output = '${month} ${day} ${year}';
+      output = '${month} ${day} ${year}'; // not interpelating need to fix
 
       return output;
     }
@@ -15747,27 +15747,27 @@ var Content = function (_React$Component) {
   }, {
     key: 'queryOutput',
     value: function queryOutput() {
-      if (this.state.avaliable === null) {
+      if (this.state.available === null) {
         return _react2.default.createElement('div', { className: 'blank-holder' });
       } else {
-        if (this.state.avaliable) {
+        if (this.state.available) {
           return _react2.default.createElement(
             'div',
-            { className: 'avaliable' },
+            { className: 'available' },
             _react2.default.createElement(
               'div',
               null,
-              'Good for you this username is avaliable!!'
+              'Good for you this username is available!!'
             )
           );
         } else {
           return _react2.default.createElement(
             'div',
-            { className: 'not-avaliable' },
+            { className: 'not-available' },
             _react2.default.createElement(
               'div',
               { className: 'message' },
-              'Sorry, this username NOT avaliable'
+              'Sorry, this username NOT available'
             ),
             _react2.default.createElement(
               'div',

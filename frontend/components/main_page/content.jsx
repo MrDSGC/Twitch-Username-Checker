@@ -4,7 +4,7 @@ import _ from 'underscore'
 class Content extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { channel: '', avaliable: null, channels: null};
+    this.state = { channel: '', available: null, channels: null};
     this.handleChannelSubmit = this.handleChannelSubmit.bind(this);
   };
 
@@ -41,9 +41,9 @@ class Content extends React.Component {
 
           this.setState({channels: cleanedDeepSearch})
           if(cleanedDeepSearch.length > 0) {
-            this.setState({avaliable: false})
+            this.setState({available: false})
           } else {
-            this.setState({avaliable: true})
+            this.setState({available: true})
           }
     }
   }
@@ -55,7 +55,7 @@ class Content extends React.Component {
     let month = this.parseMonth(string_date.slice(8,9))
 
     debugger
-    output = '${month} ${day} ${year}'
+    output = '${month} ${day} ${year}' // not interpelating need to fix
 
     return output
   }
@@ -80,26 +80,26 @@ class Content extends React.Component {
   }
 
   queryOutput() {
-    if(this.state.avaliable === null) {
+    if(this.state.available === null) {
       return(
         <div className="blank-holder">
 
         </div>
       )
     } else {
-      if(this.state.avaliable) {
+      if(this.state.available) {
         return(
-          <div className="avaliable">
+          <div className="available">
             <div>
-              Good for you this username is avaliable!!
+              Good for you this username is available!!
             </div>
           </div>
         )
       } else {
         return(
-          <div className="not-avaliable">
+          <div className="not-available">
             <div className="message">
-              Sorry, this username NOT avaliable
+              Sorry, this username NOT available
             </div>
 
             <div>
