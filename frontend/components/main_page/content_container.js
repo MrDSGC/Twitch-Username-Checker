@@ -5,7 +5,7 @@ import Content from './content';
 
 const mapStateToProps = state => {
   return ({
-    channel: state.channel
+    channels: state.channel
   })
 };
 
