@@ -39,15 +39,18 @@ class Content extends React.Component {
           let cleanedDeepSearch = this.cleanArray(deepSearch);
 
           this.setState({channels: cleanedDeepSearch})
-          debugger
           if(cleanedDeepSearch.length > 0) {
             this.setState({avaliable: false})
           } else {
             this.setState({avaliable: true})
           }
     }
+  }
 
-
+  dateParse(string_date) {
+    let date = string_date.slice(0,10)
+    let year = date.slice(0,3)
+    let 
   }
 
   queryOutput() {
@@ -74,13 +77,12 @@ class Content extends React.Component {
             </div>
 
             <div>
-              channel was created on...
+              channel was created on {this.dateParse(this.state.channels[0].created_at)}
             </div>
 
             <div>
-              channel was last updated on...
+              channel was last updated on {this.dateParse(this.state.channels[0].updated_at)}
             </div>
-
 
           </div>
         )
