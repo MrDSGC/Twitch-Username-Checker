@@ -8,7 +8,7 @@ const ChannelsReducer = (state = initialState, action) => {
   let newState = merge({}, state)
   switch(action.type) {
     case 'RECEIVE_CHANNELS':
-      return action.channels.channels;
+      //get channel from output
     default:
       return state;
   }
