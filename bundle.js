@@ -15759,34 +15759,30 @@ var Content = function (_React$Component) {
         { className: 'everything' },
         _react2.default.createElement(
           'div',
-          null,
+          { className: 'title' },
+          'Purge Watch'
+        ),
+        _react2.default.createElement(
+          'div',
+          { className: 'query-entry-form' },
           _react2.default.createElement(
             'div',
-            { className: 'Title' },
-            'Twitch Username Avaliability Checker'
+            null,
+            'Is'
+          ),
+          _react2.default.createElement(
+            'form',
+            { className: 'game-form',
+              onSubmit: this.handleChannelSubmit },
+            _react2.default.createElement('input', { type: 'text',
+              className: 'inputs',
+              value: this.state.channel,
+              onChange: this.update("channel") })
           ),
           _react2.default.createElement(
             'div',
-            { className: 'query-entry-form' },
-            _react2.default.createElement(
-              'div',
-              null,
-              'Is'
-            ),
-            _react2.default.createElement(
-              'form',
-              { className: 'game-form',
-                onSubmit: this.handleChannelSubmit },
-              _react2.default.createElement('input', { type: 'text',
-                className: 'inputs',
-                value: this.state.channel,
-                onChange: this.update("channel") })
-            ),
-            _react2.default.createElement(
-              'div',
-              null,
-              'Avaliable?'
-            )
+            null,
+            'Avaliable?'
           )
         ),
         _react2.default.createElement(

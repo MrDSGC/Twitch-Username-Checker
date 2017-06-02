@@ -91,29 +91,26 @@ class Content extends React.Component {
   render () {
     return(
       <div className="everything">
-        <div>
-          <div className="Title">
-            Twitch Username Avaliability Checker
+        <div className="title">
+          Purge Watch
+        </div>
+
+        <div className="query-entry-form">
+          <div>
+            Is
           </div>
 
-          <div className="query-entry-form">
-            <div>
-              Is
-            </div>
+          <form className="game-form"
+            onSubmit={this.handleChannelSubmit}>
+            <input type="text"
+              className="inputs"
+              value={this.state.channel}
+              onChange={this.update("channel")}/>
+          </form>
 
-            <form className="game-form"
-              onSubmit={this.handleChannelSubmit}>
-              <input type="text"
-                className="inputs"
-                value={this.state.channel}
-                onChange={this.update("channel")}/>
-            </form>
-
-            <div>
-              Avaliable?
-            </div>
-
-        </div>
+          <div>
+            Avaliable?
+          </div>
       </div>
 
       <div className="query-output">

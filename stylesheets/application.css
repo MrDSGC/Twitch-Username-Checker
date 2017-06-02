@@ -4,3 +4,38 @@ body, div, section, p, a, ul, li {
   font-size: 14px;
   font-family: 'Montserrat', sans-serif;
 }
+
+
+html {
+  height: 100%;
+  width: 100%;
+  background-color: mediumpurple;
+}
+
+body {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+}
+
+#root {
+  height: 100%;
+  width:100%;
+}
+
+.everything {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.query-entry-form {
+  display: flex;
+  flex-direction: row;
+}
+
+.title {
+  font-size: 40px;
+  
+}
