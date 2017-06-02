@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-// import { } from '../../actions/twitch_actions'
+import { fetchChannels } from '../../actions/twitch_actions'
 
 import Content from './content';
 
@@ -10,10 +10,13 @@ const mapStateToProps = state => {
 };
 
 const mapDispatchToProps = (dispatch) => {
+  return {
+    fetchChannels: query => dispatch(fetchChannels(query))
+  }
 };
 
 
 export default connect(
   mapStateToProps,
-  null
+  mapDispatchToProps
 )(Content);

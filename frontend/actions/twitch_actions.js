@@ -1,13 +1,13 @@
 import * as APIUtil from '../util/twitch_api_util';
 
-export const RECEIVE_CHANNEL = 'RECEIVE_CHANNEL';
+export const RECEIVE_CHANNELS = 'RECEIVE_CHANNELS';
 
-export const receiveChannel = channel => ({
-  type: RECEIVE_CHANNEL,
-  channel
+export const receiveChannels = channels => ({
+  type: RECEIVE_CHANNELS,
+  channels
 });
 
-export const fetchChannel = (query) => dispatch => (
+export const fetchChannels = (query) => dispatch => (
   APIUtil.queryChannel(query)
-    .then(channel => dispatch(receiveChannel(channel)))
+    .then(channel => dispatch(receiveChannels(channel)))
 );
