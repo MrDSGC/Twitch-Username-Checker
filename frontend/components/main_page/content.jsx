@@ -1,5 +1,6 @@
 import React from 'react';
 import _ from 'underscore'
+
 class Content extends React.Component {
   constructor(props) {
     super(props);
@@ -49,8 +50,33 @@ class Content extends React.Component {
 
   dateParse(string_date) {
     let date = string_date.slice(0,10)
-    let year = date.slice(0,3)
-    let 
+    let year = string_date.slice(0,3)
+    let day = string_date.slice(5,6)
+    let month = this.parseMonth(string_date.slice(8,9))
+
+    debugger
+    output = '${month} ${day} ${year}'
+
+    return output
+  }
+
+  parseMonth(month) {
+    const months = {
+      '01': 'January',
+      '02': 'Feburary',
+      '03': 'March',
+      '04': 'April',
+      '05': 'May',
+      '06': 'June',
+      '07': 'July',
+      '08': 'August',
+      '09': 'September',
+      '10': 'October',
+      '11': 'November',
+      '12': 'December'
+    }
+
+    return(months.month) //notsure if this works, need to check
   }
 
   queryOutput() {
@@ -98,11 +124,11 @@ class Content extends React.Component {
         </div>
 
         <div className="query-entry-form">
-          <div>
+          <div className="form-text">
             Is
           </div>
 
-          <form className="game-form"
+          <form className="channel-form"
             onSubmit={this.handleChannelSubmit}>
             <input type="text"
               className="inputs"
@@ -110,7 +136,7 @@ class Content extends React.Component {
               onChange={this.update("channel")}/>
           </form>
 
-          <div>
+          <div className="form-text">
             Avaliable?
           </div>
       </div>
