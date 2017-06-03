@@ -55,7 +55,7 @@ class Content extends React.Component {
     let month = this.parseMonth(string_date.slice(8,9))
 
     debugger
-    output = '${month} ${day} ${year}' // not interpelating need to fix
+    output = '${month} ${day} ${year}' // not interperlating need to fix
 
     return output
   }
@@ -82,8 +82,13 @@ class Content extends React.Component {
   queryOutput() {
     if(this.state.available === null) {
       return(
-        <div className="blank-holder">
-
+        <div className="welcome">
+          <div className="welcome-message">
+            Find out if a twitch username has been
+          </div>
+          <div className="purged">
+            PURGED
+          </div>
         </div>
       )
     } else {

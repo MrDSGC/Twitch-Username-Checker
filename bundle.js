@@ -15720,7 +15720,7 @@ var Content = function (_React$Component) {
       var month = this.parseMonth(string_date.slice(8, 9));
 
       debugger;
-      output = '${month} ${day} ${year}'; // not interpelating need to fix
+      output = '${month} ${day} ${year}'; // not interperlating need to fix
 
       return output;
     }
@@ -15748,7 +15748,20 @@ var Content = function (_React$Component) {
     key: 'queryOutput',
     value: function queryOutput() {
       if (this.state.available === null) {
-        return _react2.default.createElement('div', { className: 'blank-holder' });
+        return _react2.default.createElement(
+          'div',
+          { className: 'welcome' },
+          _react2.default.createElement(
+            'div',
+            { className: 'welcome-message' },
+            'Find out if a twitch username has been'
+          ),
+          _react2.default.createElement(
+            'div',
+            { className: 'purged' },
+            'PURGED'
+          )
+        );
       } else {
         if (this.state.available) {
           return _react2.default.createElement(

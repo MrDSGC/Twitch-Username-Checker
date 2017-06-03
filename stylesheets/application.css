@@ -53,9 +53,39 @@ body {
   width: 200px;
   font-size: 25px;
   border: none;
-  border-bottom: solid 1px #6441a4;
+  border-bottom: solid 1px white;
   background: none;
   margin-left: 10px;
   margin-right: 10px;
   color: white;
+}
+
+.query-output {
+  margin-top: 50px;
+}
+
+.welcome {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.welcome-message  {
+  font-size: 20px;
+  color: white;
+  font-weight: 700;
+  -webkit-text-stroke-color: #6441a4;
+  -webkit-text-stroke-width: 1px;
+  margin-bottom: 30px;
+}
+
+.purged {
+  font-size: 100px;
+  color: #6441a4;
+  font-weight: bold;
+  -webkit-text-stroke-color: white;
+  -webkit-text-stroke-width: 5px;
+  border: 2px solid white;
+  padding: 10px;
+  border-radius: 5px;
 }
