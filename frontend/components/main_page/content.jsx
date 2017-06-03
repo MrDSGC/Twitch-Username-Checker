@@ -50,33 +50,12 @@ class Content extends React.Component {
 
   dateParse(string_date) {
     let date = string_date.slice(0,10)
-    let year = string_date.slice(0,3)
-    let day = string_date.slice(5,6)
-    let month = this.parseMonth(string_date.slice(8,9))
 
+    let dateParsed = new Date(date)
     debugger
-    output = '${month} ${day} ${year}' // not interperlating need to fix
+    let output = System.out.println(dateParsed) // needs to be parsed by Date
 
     return output
-  }
-
-  parseMonth(month) {
-    const months = {
-      '01': 'January',
-      '02': 'Feburary',
-      '03': 'March',
-      '04': 'April',
-      '05': 'May',
-      '06': 'June',
-      '07': 'July',
-      '08': 'August',
-      '09': 'September',
-      '10': 'October',
-      '11': 'November',
-      '12': 'December'
-    }
-
-    return(months.month) //notsure if this works, need to check
   }
 
   queryOutput() {

@@ -15625,7 +15625,7 @@ exports.default = configureStore;
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-
+/* WEBPACK VAR INJECTION */(function(System) {
 
 Object.defineProperty(exports, "__esModule", {
   value: true
@@ -15715,34 +15715,12 @@ var Content = function (_React$Component) {
     key: 'dateParse',
     value: function dateParse(string_date) {
       var date = string_date.slice(0, 10);
-      var year = string_date.slice(0, 3);
-      var day = string_date.slice(5, 6);
-      var month = this.parseMonth(string_date.slice(8, 9));
 
+      var dateParsed = new Date(date);
       debugger;
-      output = '${month} ${day} ${year}'; // not interperlating need to fix
+      var output = System.out.println(dateParsed); // needs to be parsed by Date
 
       return output;
-    }
-  }, {
-    key: 'parseMonth',
-    value: function parseMonth(month) {
-      var months = {
-        '01': 'January',
-        '02': 'Feburary',
-        '03': 'March',
-        '04': 'April',
-        '05': 'May',
-        '06': 'June',
-        '07': 'July',
-        '08': 'August',
-        '09': 'September',
-        '10': 'October',
-        '11': 'November',
-        '12': 'December'
-      };
-
-      return months.month; //notsure if this works, need to check
     }
   }, {
     key: 'queryOutput',
@@ -15845,6 +15823,7 @@ var Content = function (_React$Component) {
 }(_react2.default.Component);
 
 exports.default = Content;
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(383)))
 
 /***/ }),
 /* 172 */
@@ -33820,6 +33799,19 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;//     Underscor
 				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
   }
 }.call(this));
+
+
+/***/ }),
+/* 383 */
+/***/ (function(module, exports) {
+
+// Provide a "System" global.
+module.exports = {
+	// Make sure import is only used as "System.import"
+	import: function() {
+		throw new Error("System.import cannot be used indirectly");
+	}
+};
 
 
 /***/ })
