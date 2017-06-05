@@ -15827,6 +15827,62 @@ var Content = function (_React$Component) {
           'div',
           { className: 'query-output' },
           this.queryOutput()
+        ),
+        _react2.default.createElement(
+          'div',
+          { className: 'footer' },
+          _react2.default.createElement(
+            'ul',
+            { className: 'footer-list' },
+            _react2.default.createElement(
+              'li',
+              { className: 'f-list-item' },
+              _react2.default.createElement(
+                'a',
+                { href: 'https://github.com/mrdsgc',
+                  target: '_blank',
+                  className: 'fa fa-github',
+                  id: 'font-awesome-icon' },
+                _react2.default.createElement(
+                  'span',
+                  { className: 'f-label' },
+                  'GitHub'
+                )
+              )
+            ),
+            _react2.default.createElement(
+              'li',
+              { className: 'f-list-item' },
+              _react2.default.createElement(
+                'a',
+                { href: 'https://www.linkedin.com/in/dcheng47',
+                  target: '_blank',
+                  className: 'fa fa-linkedin',
+                  id: 'font-awesome-icon' },
+                _react2.default.createElement(
+                  'span',
+                  { className: 'f-label' },
+                  'LinkedIn'
+                )
+              )
+            ),
+            _react2.default.createElement(
+              'li',
+              { className: 'f-list-item' },
+              _react2.default.createElement(
+                'a',
+                { href: 'http://www.danielscheng.com',
+                  target: '_blank',
+                  className: 'fa fa-id-card',
+                  id: 'font-awesome-icon' },
+                _react2.default.createElement(
+                  'span',
+                  { className: 'f-label' },
+                  'Portfolio'
+                )
+              )
+            )
+          )
         )
       );
     }

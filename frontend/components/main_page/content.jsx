@@ -136,6 +136,33 @@ class Content extends React.Component {
         {this.queryOutput()}
       </div>
 
+      <div className="footer">
+        <ul className="footer-list">
+          <li className="f-list-item">
+            <a href="https://github.com/mrdsgc"
+               target="_blank"
+               className="fa fa-github"
+               id="font-awesome-icon">
+               <span className="f-label">GitHub</span></a>
+          </li>
+          <li className="f-list-item">
+            <a href="https://www.linkedin.com/in/dcheng47"
+               target="_blank"
+               className="fa fa-linkedin"
+               id="font-awesome-icon">
+               <span className="f-label">LinkedIn</span>
+            </a>
+          </li>
+          <li className="f-list-item">
+            <a href="http://www.danielscheng.com"
+               target="_blank"
+               className="fa fa-id-card"
+               id="font-awesome-icon">
+               <span className="f-label">Portfolio</span>
+            </a>
+          </li>
+        </ul>
+      </div>
       </div>
     )
   };

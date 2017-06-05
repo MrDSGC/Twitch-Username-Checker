@@ -138,3 +138,39 @@ body {
 .updated-at {
   font-size: 20px;
 }
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 10px;
+  margin-left: 30px;
+}
+
+.footer-list {
+  font-size: 30px;
+  list-style-type: none;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.f-label {
+  color: white;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.f-list-item {
+  font-size: 20px;
+  margin-right:30px;
+}
+
+.f-list-item:last-of-type {
+  margin-right: 0;
+}
+
+.f-list-item:hover {
+  border-bottom: 1px solid white;
+}
