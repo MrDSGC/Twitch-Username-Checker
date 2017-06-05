@@ -15747,7 +15747,16 @@ var Content = function (_React$Component) {
             _react2.default.createElement(
               'div',
               { className: 'available-message' },
-              'Good for you this username is available!!'
+              'This username is Probably available!'
+            ),
+            _react2.default.createElement(
+              'div',
+              null,
+              _react2.default.createElement(
+                'a',
+                { href: 'https://github.com/MrDSGC/Twitch-Username-Checker' },
+                'Not actually available? Here\'s why.'
+              )
             )
           );
         } else {

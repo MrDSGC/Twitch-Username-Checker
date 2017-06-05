@@ -114,6 +114,13 @@ body {
   font-size: 50px;
 }
 
+.available {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
 .available-message {
   font-size: 50px;
   color: white;

@@ -74,7 +74,13 @@ class Content extends React.Component {
         return(
           <div className="available">
             <div className="available-message">
-              Good for you this username is available!!
+              This username is Probably available!
+            </div>
+
+            <div>
+              <a href="https://github.com/MrDSGC/Twitch-Username-Checker">
+                Not actually available? Here's why.
+              </a>
             </div>
           </div>
         )
