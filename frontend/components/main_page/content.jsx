@@ -34,7 +34,7 @@ class Content extends React.Component {
 
     if(prevProps !== this.props) {
       let deepSearch = _.map(this.props.channels, function(channel){
-          if(channel.name === this.state.channel){
+          if(channel.name.toLowerCase() === this.state.channel.toLowerCase()){
             return channel
           }}.bind(this))
           let cleanedDeepSearch = this.cleanArray(deepSearch);
@@ -52,8 +52,7 @@ class Content extends React.Component {
     let date = string_date.slice(0,10)
 
     let dateParsed = new Date(date)
-    debugger
-    let output = System.out.println(dateParsed) // needs to be parsed by Date
+    let output = dateParsed.toDateString(); // needs to be parsed by Date
 
     return output
   }
@@ -74,7 +73,7 @@ class Content extends React.Component {
       if(this.state.available) {
         return(
           <div className="available">
-            <div>
+            <div className="available-message">
               Good for you this username is available!!
             </div>
           </div>
@@ -82,16 +81,24 @@ class Content extends React.Component {
       } else {
         return(
           <div className="not-available">
-            <div className="message">
-              Sorry, this username NOT available
+            <div className="message-holder">
+              <div className="message-1">
+                Sorry, this username is
+              </div>
+              <div className="message-2">
+                NOT
+              </div>
+              <div className="message-3">
+                available
+              </div>
             </div>
 
-            <div>
-              channel was created on {this.dateParse(this.state.channels[0].created_at)}
+            <div className="created-at">
+              This channel was created on {this.dateParse(this.state.channels[0].created_at)}
             </div>
 
-            <div>
-              channel was last updated on {this.dateParse(this.state.channels[0].updated_at)}
+            <div className="updated-at">
+              This channel was last updated on {this.dateParse(this.state.channels[0].updated_at)}
             </div>
 
           </div>

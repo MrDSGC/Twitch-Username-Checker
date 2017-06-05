@@ -79,6 +79,7 @@ body {
   margin-bottom: 30px;
 }
 
+
 .purged {
   font-size: 100px;
   color: #6441a4;
@@ -88,4 +89,52 @@ body {
   border: 2px solid white;
   padding: 10px;
   border-radius: 5px;
+}
+
+.message-holder {
+  display: flex;
+  flex-direction: row;
+  align-items: baseline;
+  font-size: 50px;
+  margin-bottom: 30px;
+}
+
+.message-2 {
+  margin-left: 10px;
+  margin-right: 10px;
+  font-size: 100px;
+  color: #6441a4;
+  font-weight: bold;
+  -webkit-text-stroke-color: white;
+  -webkit-text-stroke-width: 5px;
+
+}
+
+.message-1, .message-3 {
+  font-size: 50px;
+}
+
+.available-message {
+  font-size: 50px;
+  color: white;
+  font-weight: 700;
+  -webkit-text-stroke-color: #6441a4;
+  -webkit-text-stroke-width: 2px;
+  margin-bottom: 30px;
+}
+
+.not-available {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.created-at {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.updated-at {
+  font-size: 20px;
 }

@@ -15625,7 +15625,7 @@ exports.default = configureStore;
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(System) {
+
 
 Object.defineProperty(exports, "__esModule", {
   value: true
@@ -15697,7 +15697,7 @@ var Content = function (_React$Component) {
 
       if (prevProps !== this.props) {
         var deepSearch = _underscore2.default.map(this.props.channels, function (channel) {
-          if (channel.name === this.state.channel) {
+          if (channel.name.toLowerCase() === this.state.channel.toLowerCase()) {
             return channel;
           }
         }.bind(this));
@@ -15717,8 +15717,7 @@ var Content = function (_React$Component) {
       var date = string_date.slice(0, 10);
 
       var dateParsed = new Date(date);
-      debugger;
-      var output = System.out.println(dateParsed); // needs to be parsed by Date
+      var output = dateParsed.toDateString(); // needs to be parsed by Date
 
       return output;
     }
@@ -15747,7 +15746,7 @@ var Content = function (_React$Component) {
             { className: 'available' },
             _react2.default.createElement(
               'div',
-              null,
+              { className: 'available-message' },
               'Good for you this username is available!!'
             )
           );
@@ -15757,19 +15756,33 @@ var Content = function (_React$Component) {
             { className: 'not-available' },
             _react2.default.createElement(
               'div',
-              { className: 'message' },
-              'Sorry, this username NOT available'
+              { className: 'message-holder' },
+              _react2.default.createElement(
+                'div',
+                { className: 'message-1' },
+                'Sorry, this username is'
+              ),
+              _react2.default.createElement(
+                'div',
+                { className: 'message-2' },
+                'NOT'
+              ),
+              _react2.default.createElement(
+                'div',
+                { className: 'message-3' },
+                'available'
+              )
             ),
             _react2.default.createElement(
               'div',
-              null,
-              'channel was created on ',
+              { className: 'created-at' },
+              'This channel was created on ',
               this.dateParse(this.state.channels[0].created_at)
             ),
             _react2.default.createElement(
               'div',
-              null,
-              'channel was last updated on ',
+              { className: 'updated-at' },
+              'This channel was last updated on ',
               this.dateParse(this.state.channels[0].updated_at)
             )
           );
@@ -15823,7 +15836,6 @@ var Content = function (_React$Component) {
 }(_react2.default.Component);
 
 exports.default = Content;
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(383)))
 
 /***/ }),
 /* 172 */
@@ -33799,19 +33811,6 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;//     Underscor
 				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
   }
 }.call(this));
-
-
-/***/ }),
-/* 383 */
-/***/ (function(module, exports) {
-
-// Provide a "System" global.
-module.exports = {
-	// Make sure import is only used as "System.import"
-	import: function() {
-		throw new Error("System.import cannot be used indirectly");
-	}
-};
 
 
 /***/ })
