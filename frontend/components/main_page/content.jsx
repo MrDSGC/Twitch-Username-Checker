@@ -4,14 +4,14 @@ import _ from 'underscore'
 class Content extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { channel: '', available: null, channels: null};
-    this.handleChannelSubmit = this.handleChannelSubmit.bind(this);
+    this.state = { user: '', available: null};
+    this.handleUserSubmit = this.handleUserSubmit.bind(this);
   };
 
-  handleChannelSubmit(e) {
+  handleUserSubmit(e) {
 		e.preventDefault();
-		const channelQuery = this.state.channel;
-		this.props.fetchChannels(channelQuery)
+		const userQuery = this.state.user;
+		this.props.fetchUser(userQuery)
 	};
 
   update(field) {
@@ -20,31 +20,13 @@ class Content extends React.Component {
     });
   };
 
-  cleanArray(actual) {
-  var newArray = new Array();
-  for (var i = 0; i < actual.length; i++) {
-    if (actual[i]) {
-      newArray.push(actual[i]);
-    }
-  }
-  return newArray;
-}
-
   componentDidUpdate(prevProps) {
-
-    if(prevProps !== this.props) {
-      let deepSearch = _.map(this.props.channels, function(channel){
-          if(channel.name.toLowerCase() === this.state.channel.toLowerCase()){
-            return channel
-          }}.bind(this))
-          let cleanedDeepSearch = this.cleanArray(deepSearch);
-
-          this.setState({channels: cleanedDeepSearch})
-          if(cleanedDeepSearch.length > 0) {
-            this.setState({available: false})
-          } else {
-            this.setState({available: true})
-          }
+    if(prevProps.user !== this.props.user) {
+      if(this.props.user.length > 0) {
+        this.setState({available: false})
+      } else {
+        this.setState({available: true})
+      }
     }
   }
 
@@ -70,11 +52,11 @@ class Content extends React.Component {
         </div>
       )
     } else {
-      if(this.state.available) {
+      if(this.state.available || this.props.user.length < 1) {
         return(
           <div className="available">
             <div className="available-message">
-              This username is Probably available!
+              This username MIGHT be available!
             </div>
 
             <div>
@@ -100,11 +82,11 @@ class Content extends React.Component {
             </div>
 
             <div className="created-at">
-              This channel was created on {this.dateParse(this.state.channels[0].created_at)}
+              This account was created on {this.dateParse(this.props.user[0].created_at)}
             </div>
 
             <div className="updated-at">
-              This channel was last updated on {this.dateParse(this.state.channels[0].updated_at)}
+              This account was last updated on {this.dateParse(this.props.user[0].updated_at)}
             </div>
 
           </div>
@@ -126,11 +108,11 @@ class Content extends React.Component {
           </div>
 
           <form className="channel-form"
-            onSubmit={this.handleChannelSubmit}>
+            onSubmit={this.handleUserSubmit}>
             <input type="text"
               className="inputs"
-              value={this.state.channel}
-              onChange={this.update("channel")}/>
+              value={this.state.user}
+              onChange={this.update("user")}/>
           </form>
 
           <div className="form-text">

@@ -8985,7 +8985,7 @@ module.exports = g;
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.fetchChannels = exports.receiveChannels = exports.RECEIVE_CHANNELS = undefined;
+exports.fetchUser = exports.receiveUser = exports.RECEIVE_USER = undefined;
 
 var _twitch_api_util = __webpack_require__(177);
 
@@ -8993,19 +8993,19 @@ var APIUtil = _interopRequireWildcard(_twitch_api_util);
 
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
-var RECEIVE_CHANNELS = exports.RECEIVE_CHANNELS = 'RECEIVE_CHANNELS';
+var RECEIVE_USER = exports.RECEIVE_USER = 'RECEIVE_USER';
 
-var receiveChannels = exports.receiveChannels = function receiveChannels(channels) {
+var receiveUser = exports.receiveUser = function receiveUser(user) {
   return {
-    type: RECEIVE_CHANNELS,
-    channels: channels
+    type: RECEIVE_USER,
+    user: user
   };
 };
 
-var fetchChannels = exports.fetchChannels = function fetchChannels(query) {
+var fetchUser = exports.fetchUser = function fetchUser(query) {
   return function (dispatch) {
-    return APIUtil.queryChannel(query).then(function (channel) {
-      return dispatch(receiveChannels(channel));
+    return APIUtil.queryUser(query).then(function (user) {
+      return dispatch(receiveUser(user));
     });
   };
 };
@@ -15659,17 +15659,17 @@ var Content = function (_React$Component) {
 
     var _this = _possibleConstructorReturn(this, (Content.__proto__ || Object.getPrototypeOf(Content)).call(this, props));
 
-    _this.state = { channel: '', available: null, channels: null };
-    _this.handleChannelSubmit = _this.handleChannelSubmit.bind(_this);
+    _this.state = { user: '', available: null };
+    _this.handleUserSubmit = _this.handleUserSubmit.bind(_this);
     return _this;
   }
 
   _createClass(Content, [{
-    key: 'handleChannelSubmit',
-    value: function handleChannelSubmit(e) {
+    key: 'handleUserSubmit',
+    value: function handleUserSubmit(e) {
       e.preventDefault();
-      var channelQuery = this.state.channel;
-      this.props.fetchChannels(channelQuery);
+      var userQuery = this.state.user;
+      this.props.fetchUser(userQuery);
     }
   }, {
     key: 'update',
@@ -15681,30 +15681,10 @@ var Content = function (_React$Component) {
       };
     }
   }, {
-    key: 'cleanArray',
-    value: function cleanArray(actual) {
-      var newArray = new Array();
-      for (var i = 0; i < actual.length; i++) {
-        if (actual[i]) {
-          newArray.push(actual[i]);
-        }
-      }
-      return newArray;
-    }
-  }, {
     key: 'componentDidUpdate',
     value: function componentDidUpdate(prevProps) {
-
-      if (prevProps !== this.props) {
-        var deepSearch = _underscore2.default.map(this.props.channels, function (channel) {
-          if (channel.name.toLowerCase() === this.state.channel.toLowerCase()) {
-            return channel;
-          }
-        }.bind(this));
-        var cleanedDeepSearch = this.cleanArray(deepSearch);
-
-        this.setState({ channels: cleanedDeepSearch });
-        if (cleanedDeepSearch.length > 0) {
+      if (prevProps.user !== this.props.user) {
+        if (this.props.user.length > 0) {
           this.setState({ available: false });
         } else {
           this.setState({ available: true });
@@ -15740,14 +15720,14 @@ var Content = function (_React$Component) {
           )
         );
       } else {
-        if (this.state.available) {
+        if (this.state.available || this.props.user.length < 1) {
           return _react2.default.createElement(
             'div',
             { className: 'available' },
             _react2.default.createElement(
               'div',
               { className: 'available-message' },
-              'This username is Probably available!'
+              'This username MIGHT be available!'
             ),
             _react2.default.createElement(
               'div',
@@ -15785,14 +15765,14 @@ var Content = function (_React$Component) {
             _react2.default.createElement(
               'div',
               { className: 'created-at' },
-              'This channel was created on ',
-              this.dateParse(this.state.channels[0].created_at)
+              'This account was created on ',
+              this.dateParse(this.props.user[0].created_at)
             ),
             _react2.default.createElement(
               'div',
               { className: 'updated-at' },
-              'This channel was last updated on ',
-              this.dateParse(this.state.channels[0].updated_at)
+              'This account was last updated on ',
+              this.dateParse(this.props.user[0].updated_at)
             )
           );
         }
@@ -15820,11 +15800,11 @@ var Content = function (_React$Component) {
           _react2.default.createElement(
             'form',
             { className: 'channel-form',
-              onSubmit: this.handleChannelSubmit },
+              onSubmit: this.handleUserSubmit },
             _react2.default.createElement('input', { type: 'text',
               className: 'inputs',
-              value: this.state.channel,
-              onChange: this.update("channel") })
+              value: this.state.user,
+              onChange: this.update("user") })
           ),
           _react2.default.createElement(
             'div',
@@ -15925,14 +15905,14 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 var mapStateToProps = function mapStateToProps(state) {
   return {
-    channels: state.channel
+    user: state.user
   };
 };
 
 var mapDispatchToProps = function mapDispatchToProps(dispatch) {
   return {
-    fetchChannels: function fetchChannels(query) {
-      return dispatch((0, _twitch_actions.fetchChannels)(query));
+    fetchUser: function fetchUser(query) {
+      return dispatch((0, _twitch_actions.fetchUser)(query));
     }
   };
 };
@@ -15998,45 +15978,7 @@ var MainPage = function (_React$Component) {
 exports.default = MainPage;
 
 /***/ }),
-/* 174 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _merge = __webpack_require__(277);
-
-var _merge2 = _interopRequireDefault(_merge);
-
-var _twitch_actions = __webpack_require__(93);
-
-var _twitch_actions2 = _interopRequireDefault(_twitch_actions);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-var initialState = [];
-
-var ChannelsReducer = function ChannelsReducer() {
-  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : initialState;
-  var action = arguments[1];
-
-  Object.freeze(state);
-  var newState = (0, _merge2.default)({}, state);
-  switch (action.type) {
-    case 'RECEIVE_CHANNELS':
-      return action.channels.channels;
-    default:
-      return state;
-  }
-};
-
-exports.default = ChannelsReducer;
-
-/***/ }),
+/* 174 */,
 /* 175 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -16049,14 +15991,14 @@ Object.defineProperty(exports, "__esModule", {
 
 var _redux = __webpack_require__(91);
 
-var _channels_reducer = __webpack_require__(174);
+var _user_reducer = __webpack_require__(384);
 
-var _channels_reducer2 = _interopRequireDefault(_channels_reducer);
+var _user_reducer2 = _interopRequireDefault(_user_reducer);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 exports.default = (0, _redux.combineReducers)({
-  channel: _channels_reducer2.default
+  user: _user_reducer2.default
 });
 
 /***/ }),
@@ -16103,17 +16045,15 @@ document.addEventListener('DOMContentLoaded', function () {
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-var queryChannel = exports.queryChannel = function queryChannel(search) {
+var queryUser = exports.queryUser = function queryUser(search) {
   return $.ajax({
     method: "GET",
-    url: 'https://api.twitch.tv/kraken/search/channels',
+    url: 'https://api.twitch.tv/kraken/users',
     headers: {
       'Client-ID': 'nrcmtymfzwx4jbwzdk36rl9yj1ln39',
       'Accept': 'application/vnd.twitchtv.v5+json'
     },
-    data: { query: search,
-      limit: 100
-    }
+    data: { login: search }
   });
 };
 
@@ -33877,6 +33817,46 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;//     Underscor
   }
 }.call(this));
 
+
+/***/ }),
+/* 383 */,
+/* 384 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _merge = __webpack_require__(277);
+
+var _merge2 = _interopRequireDefault(_merge);
+
+var _twitch_actions = __webpack_require__(93);
+
+var _twitch_actions2 = _interopRequireDefault(_twitch_actions);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var initialState = [];
+
+var UserReducer = function UserReducer() {
+  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : initialState;
+  var action = arguments[1];
+
+  Object.freeze(state);
+  var newState = (0, _merge2.default)({}, state);
+  switch (action.type) {
+    case 'RECEIVE_USER':
+      return action.user.users;
+    default:
+      return state;
+  }
+};
+
+exports.default = UserReducer;
 
 /***/ })
 /******/ ]);

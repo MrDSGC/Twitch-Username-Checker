@@ -1,17 +1,17 @@
 import { connect } from 'react-redux';
-import { fetchChannels } from '../../actions/twitch_actions'
+import { fetchUser } from '../../actions/twitch_actions'
 
 import Content from './content';
 
 const mapStateToProps = state => {
   return ({
-    channels: state.channel
+    user: state.user
   })
 };
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    fetchChannels: query => dispatch(fetchChannels(query))
+    fetchUser: query => dispatch(fetchUser(query))
   }
 };
 
