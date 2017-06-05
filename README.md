@@ -17,4 +17,4 @@ I feel this would be pretty useful tool to check the likelihood of a username yo
 
 ### Limitations
 
-* The `Get Users` API endpoint will not return Closed accounts.
+* The `Get Users` API endpoint will not return accounts Closed due to terms of service violations.
