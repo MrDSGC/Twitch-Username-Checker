@@ -1,6 +1,6 @@
 # Twitch Username Check
 
-[TwtichPurge Live](www.twitchpurge.us)
+[TwtichPurge Live](http://www.twitchpurge.us)
 
 TwitchPurge is a quick project i designed in response to twitch's announcement about their [username purge](https://blog.twitch.tv/username-rename-recycling-policy-update-882431cb966b) in Jan 2017. I thought it would be nice to have a tool to check if a username has been taken or not. It features React.js with a Redux architectural framework for it's front end and uses Twitch's API endpoints to display it's views.
 
